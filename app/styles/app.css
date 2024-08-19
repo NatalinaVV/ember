@@ -473,4 +473,75 @@ p {
   border: 0;
 }
 
+
+.rental-form {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.rental-form label {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 10px;
+  display: block;
+  color: #016aba;
+}
+
+.rental-form input,
+.rental-form select,
+.rental-form textarea {
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 1em;
+  margin-bottom: 20px;
+  border: 1px solid lightgray;
+  border-radius: 4px;
+  background-color: rgb(255, 255, 255, 0.75);
+}
+
+.rental-form input:focus,
+.rental-form select:focus,
+.rental-form textarea:focus {
+  outline: none;
+  background-color: #f3f3f3;
+  border-color: #016aba;
+}
+
+.rental-form button {
+  padding: 10px 30px;
+  background: #016aba;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.rental-form button:hover {
+  background: #014f89;
+}
+
+/* Дополнительные стили */
+.rental-form input[type="file"] {
+  padding: 5px;
+}
+
+.rental-form .image-preview {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.rental-form .image-preview img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
 /* stylelint-enable no-descending-specificity, media-feature-range-notation */

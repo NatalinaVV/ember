@@ -1,0 +1,40 @@
+<form class="rental-form" {{on "submit" this.submitForm}}>
+
+  <label for="title">Title</label>
+  <input id="title" type="text" value={{this.title}} {{on "input" (fn this.updateValue "title")}} />
+
+  <label for="owner">Owner</label>
+  <input id="owner" type="text" value={{this.owner}} {{on "input" (fn this.updateValue "owner")}} />
+
+  <label for="city">City</label>
+  <input id="city" type="text" value={{this.city}} {{on "input" (fn this.updateValue "city")}} />
+
+  <label for="lat">Latitude</label>
+  <input id="lat" type="number" value={{this.lat}} {{on "input" (fn this.updateValue "lat")}} />
+
+  <label for="lng">Longitude</label>
+  <input id="lng" type="number" value={{this.lng}} {{on "input" (fn this.updateValue "lng")}} />
+
+  <label for="category">Category</label>
+  <select id="category" value={{this.category}} {{on "change" (fn this.updateValue "category")}}>
+    {{#each this.categories as |category|}}
+      <option value={{category}}>{{category}}</option>
+    {{/each}}
+  </select>
+
+  <label for="bedrooms">Bedrooms</label>
+  <select id="bedrooms" value={{this.bedrooms}} {{on "change" (fn this.updateValue "bedrooms")}}>
+    {{#each this.bedroomOptions as |bedroom|}}
+      <option value={{bedroom}}>{{bedroom}}</option>
+    {{/each}}
+  </select>
+
+  <label for="description">Description</label>
+  <textarea id="description" value={{this.description}} {{on "input" (fn this.updateValue "description")}}></textarea>
+
+  <label for="image">Image</label>
+  <input id="image" type="file" {{on "change" this.handleImageChange}} />
+
+  <button type="submit">Submit</button>
+
+</form>

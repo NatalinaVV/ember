@@ -9,7 +9,9 @@ module('Integration | Component | rental', function (hooks) {
   test('it renders information about a rental property', async function (assert) {
     this.setProperties({
       rental: {
-        id: 'grand-old-mansion',
+        type: "rental",
+        id: "grand-old-mansion",
+        attributes: {
         title: 'Grand Old Mansion',
         owner: 'Veruca Salt',
         city: 'San Francisco',
@@ -24,10 +26,11 @@ module('Integration | Component | rental', function (hooks) {
           'https://upload.wikimedia.org/wikipedia/commons/c/cb/Crane_estate_(5).jpg',
         description:
           'This grand old mansion sits on over 100 acres of rolling hills and dense redwood forests.',
+      }
       },
     });
 
-    await render(hbs`<Rental @rental={{this.rental}} />`);
+    await render(hbs`<Rental @rental={{this.rental.attributes}} />`);
 
     assert.dom('article').hasClass('rental');
     assert.dom('article h3').hasText('Grand Old Mansion');

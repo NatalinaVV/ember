@@ -9,7 +9,9 @@ module('Integration | Component | rental/detailed', function (hooks) {
   hooks.beforeEach(function () {
     this.setProperties({
       rental: {
-        id: 'grand-old-mansion',
+        type: "rental",
+        id: "grand-old-mansion",
+        attributes: {
         title: 'Grand Old Mansion',
         owner: 'Veruca Salt',
         city: 'San Francisco',
@@ -24,12 +26,13 @@ module('Integration | Component | rental/detailed', function (hooks) {
           'https://upload.wikimedia.org/wikipedia/commons/c/cb/Crane_estate_(5).jpg',
         description:
           'This grand old mansion sits on over 100 acres of rolling hills and dense redwood forests.',
+      }
       },
     });
   });
 
   test('it renders a header with a share button', async function (assert) {
-    await render(hbs`<Rental::Detailed @rental={{this.rental}} />`);
+    await render(hbs`<Rental::Detailed @rental={{this.rental.attributes}} />`);
 
     assert.dom('.jumbo').exists();
     assert.dom('.jumbo h2').containsText('Grand Old Mansion');
@@ -40,7 +43,7 @@ module('Integration | Component | rental/detailed', function (hooks) {
   });
 
   test('it renders detailed information about a rental property', async function (assert) {
-    await render(hbs`<Rental::Detailed @rental={{this.rental}} />`);
+    await render(hbs`<Rental::Detailed @rental={{this.rental.attributes}} />`);
 
     assert.dom('article').hasClass('rental');
     assert.dom('article h3').containsText('About Grand Old Mansion');
