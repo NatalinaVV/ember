@@ -46,28 +46,31 @@ export default class RentalFormComponent extends Component {
     //   }
 
     const newRental = {
-        type: 'rental',
-        id: this.title,
-        attributes: {
-            title: this.title,
-            owner: this.owner,
-            city: this.city,
-            location: {
-                lat: parseFloat(this.lat),
-                lng: parseFloat(this.lng),
-            },
-            category: this.category,
-            bedrooms: parseInt(this.bedrooms),
-            image: this.image,
-            description: this.description,
-        }
-    }; 
-    
+      type: 'rental',
+      id: this.title,
+      attributes: {
+        title: this.title,
+        owner: this.owner,
+        city: this.city,
+        location: {
+          lat: parseFloat(this.lat),
+          lng: parseFloat(this.lng),
+        },
+        category: this.category,
+        bedrooms: parseInt(this.bedrooms),
+        image: this.image,
+        description: this.description,
+      },
+    };
+
     try {
-      const response = await fetch('https://emberapimanagement.azure-api.net/fa-rentals-service/rentals', {
-        method: 'POST',
-        body: JSON.stringify(newRental),
-      });
+      const response = await fetch(
+        'https://emberapimanagement.azure-api.net/fa-rentals-service/rentals',
+        {
+          method: 'POST',
+          body: JSON.stringify(newRental),
+        },
+      );
 
       if (!response.ok) {
         throw new Error('Failed to submit form');
@@ -87,10 +90,12 @@ export default class RentalFormComponent extends Component {
     const reader = new FileReader();
 
     reader.onloadend = () => {
-        const base64String = reader.result.replace("data:", "").replace(/^.+,/, ""); // remove content type part
-        this.image = base64String;
-    }
-    
+      const base64String = reader.result
+        .replace('data:', '')
+        .replace(/^.+,/, ''); // remove content type part
+      this.image = base64String;
+    };
+
     reader.readAsDataURL(file);
-}
+  }
 }

@@ -4,28 +4,6 @@ import { find, render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import Service from '@ember/service';
 
-// module('Integration | Component | share-button', function (hooks) {
-//   setupRenderingTest(hooks);
-
-//   test('it renders', async function (assert) {
-//     // Set any properties with this.set('myProperty', 'value');
-//     // Handle any actions with this.set('myAction', function(val) { ... });
-
-//     await render(hbs`<ShareButton />`);
-
-//     assert.dom().hasText('');
-
-//     // Template block usage:
-//     await render(hbs`
-//       <ShareButton>
-//         template block text
-//       </ShareButton>
-//     `);
-
-//     assert.dom().hasText('template block text');
-//   });
-// });
-
 const MOCK_URL = new URL(
   '/foo/bar?baz=true#some-section',
   window.location.origin,

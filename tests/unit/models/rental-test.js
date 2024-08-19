@@ -8,24 +8,24 @@ module('Unit | Model | rental', function (hooks) {
   test('it has the right type', function (assert) {
     const store = this.owner.lookup('service:store');
     let rental = store.createRecord('rental', {
-      type: "rental",
-      id: "grand-old-mansion",
+      type: 'rental',
+      id: 'grand-old-mansion',
       attributes: {
-      title: 'Grand Old Mansion',
-      owner: 'Veruca Salt',
-      city: 'San Francisco',
-      location: {
-        lat: 37.7749,
-        lng: -122.4194,
+        title: 'Grand Old Mansion',
+        owner: 'Veruca Salt',
+        city: 'San Francisco',
+        location: {
+          lat: 37.7749,
+          lng: -122.4194,
+        },
+        category: 'Estate',
+        type: 'Standalone',
+        bedrooms: 15,
+        image:
+          'https://upload.wikimedia.org/wikipedia/commons/c/cb/Crane_estate_(5).jpg',
+        description:
+          'This grand old mansion sits on over 100 acres of rolling hills and dense redwood forests.',
       },
-      category: 'Estate',
-      type: 'Standalone',
-      bedrooms: 15,
-      image:
-        'https://upload.wikimedia.org/wikipedia/commons/c/cb/Crane_estate_(5).jpg',
-      description:
-        'This grand old mansion sits on over 100 acres of rolling hills and dense redwood forests.',
-    }
     });
 
     assert.strictEqual(rental.attributes.type, 'Standalone');

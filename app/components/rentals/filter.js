@@ -5,7 +5,9 @@ export default class RentalsFilterComponent extends Component {
     let { rentals, query } = this.args;
 
     if (query) {
-      rentals = rentals.filter((rental) => rental.attributes.title.toLowerCase().includes(query.toLowerCase()));
+      rentals = rentals.filter((rental) =>
+        rental.attributes.title.toLowerCase().includes(query.toLowerCase()),
+      );
     }
 
     return rentals;
